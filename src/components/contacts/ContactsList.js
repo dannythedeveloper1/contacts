@@ -1,11 +1,17 @@
 import ContactCard from "./ContactCard"
 
-const ContactList = ({ contacts=[] }) => {
+const ContactList = ({ contacts = [] }) => {
+    const styles = {
+        border: "1px solid black",
+        margin: "10% 20%",
+        backgroundColor:"lightgray",
+    }
     return (
-        <div>
+        <div style={styles}>
             {contacts.map((contact) => 
                 <ContactCard 
                     key={contact.id}
+                    id={contact.id}
                     firstName={contact.firstName} 
                     lastName={contact.lastName} 
                     phoneNumber={contact.phoneNumber} 

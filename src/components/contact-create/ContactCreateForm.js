@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createContact } from "../../utils/contacts";
-
+import { Input, Button, Form, Avatar } from "../styles/Styles";
 const ContactCreateForm = () => {
 	const [form, setForm] = useState({
 		firstName: "",
@@ -16,18 +16,18 @@ const ContactCreateForm = () => {
 	};
 
 	const handleFormSubmit = (event) => {
-        event.preventDefault();
-        createContact(form);
+		event.preventDefault();
+		createContact(form);
 	};
 
 	return (
-		<form onSubmit={handleFormSubmit}>
+		<Form onSubmit={handleFormSubmit}>
 			<div>
-				<img src={form.profilePic} alt="Profile preview." />
+				<Avatar src="https://i.pravatar.cc/300?u=1" alt="Profile preview." />
 			</div>
 			<div>
 				<div>
-					<input
+					<Input
 						type="text"
 						placeholder="First Name"
 						name="firstName"
@@ -36,7 +36,7 @@ const ContactCreateForm = () => {
 					/>
 				</div>
 				<div>
-					<input
+					<Input
 						type="text"
 						placeholder="Last Name"
 						name="lastName"
@@ -45,7 +45,7 @@ const ContactCreateForm = () => {
 					/>
 				</div>
 				<div>
-					<input
+					<Input
 						type="tel"
 						placeholder="Phone Number"
 						name="phoneNumber"
@@ -54,7 +54,7 @@ const ContactCreateForm = () => {
 					/>
 				</div>
 				<div>
-					<input
+					<Input
 						type="email"
 						placeholder="Email"
 						name="email"
@@ -63,7 +63,7 @@ const ContactCreateForm = () => {
 					/>
 				</div>
 				<div>
-					<input
+					<Input
 						type="text"
 						placeholder="Address"
 						name="address"
@@ -72,7 +72,7 @@ const ContactCreateForm = () => {
 					/>
 				</div>
 				<div>
-					<input
+					<Input
 						type="text"
 						placeholder="Profile Picture Url"
 						name="profilePic"
@@ -81,10 +81,10 @@ const ContactCreateForm = () => {
 					/>
 				</div>
 				<div>
-					<button type="submit">Add Contact</button>
+					<Button type="submit">Add Contact</Button>
 				</div>
 			</div>
-		</form>
+		</Form>
 	);
 };
 

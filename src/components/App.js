@@ -5,6 +5,7 @@ import ContactsPage from "./contacts";
 import ContactDetailsPage from "./contact-details";
 import ContactCreatePage from "./contact-create";
 import { getContacts } from "../utils/contacts";
+import { ContactProvider } from "./Context/ContactContext";
 
 const mockContacts = [
 	{
@@ -49,17 +50,18 @@ function App() {
 	const [contacts, setContacts] = useState([]);
 	useEffect(() => {
 		const storedContacts = getContacts();
+		console.log(storedContacts.length);
 		setContacts(storedContacts.length ? storedContacts : mockContacts);
 	}, []);
 
 	return (
-		<div>
+		<ContactProvider>
 			<LoginPage />
 			<RegisterPage />
-			<ContactsPage contacts={contacts} />
+			<ContactsPage />
 			<ContactDetailsPage contact={contacts[0]} />
 			<ContactCreatePage />
-		</div>
+		</ContactProvider>
 	);
 }
 

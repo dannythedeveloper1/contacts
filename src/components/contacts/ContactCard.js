@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import { deleteContact } from "../../utils/contacts";
+import { ContactContext } from "../Context/ContactContext";
 export const Container = styled.div`
     border:1px solid black;
     margin:5% 10%;
@@ -18,6 +20,8 @@ const ContactCard = ({
 	phoneNumber = "",
 	profilePic = "",
 }) => {
+
+    const [contacts, setContacts] = useContext(ContactContext);
 
     const styles = {
         img: {
@@ -43,6 +47,10 @@ const ContactCard = ({
             border:"none"
         }
     }
+    const removeContact = (id) => {
+        const newContacts = contacts.filter((contact) => contact.id !== id);
+        setContacts(newContacts);
+    }
 
 	return (
 		<Container>
@@ -63,7 +71,7 @@ const ContactCard = ({
 				</div>
 			</div>
 			<div>
-				<button style={styles.button} onClick={()=>deleteContact(id)}>X</button>
+				<button style={styles.button} onClick={()=>removeContact(id)}>X</button>
 			</div>
 		</Container>
 	);

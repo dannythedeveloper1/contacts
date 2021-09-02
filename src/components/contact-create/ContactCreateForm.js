@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+import React, { useContext, useState } from "react";
 import { createContact } from "../../utils/contacts";
+import { ContactContext } from "../Context/ContactContext";
 import { Input, Button, Form, Avatar } from "../styles/Styles";
 const ContactCreateForm = () => {
+	const [contacts, setContacts] = useContext(ContactContext);
 	const [form, setForm] = useState({
+		id: uuidv4(),
 		firstName: "",
 		lastName: "",
 		phoneNumber: "",
@@ -17,7 +21,16 @@ const ContactCreateForm = () => {
 
 	const handleFormSubmit = (event) => {
 		event.preventDefault();
-		createContact(form);
+		setContacts([...contacts, form]);
+		setForm({
+			firstName: "",
+			lastName: "",
+			phoneNumber: "",
+			email: "",
+			address: "",
+			profilePic: "",
+		});
+		// createContact(form);
 	};
 
 	return (
@@ -81,7 +94,7 @@ const ContactCreateForm = () => {
 					/>
 				</div>
 				<div>
-					<Button type="submit">Add Contact</Button>
+					<Button type="submit" onClick={handleFormSubmit}>Add Contact</Button>
 				</div>
 			</div>
 		</Form>

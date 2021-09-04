@@ -6,7 +6,7 @@ import { Input, Button, Form, Avatar } from "../styles/Styles";
 const ContactCreateForm = () => {
 	const [contacts, setContacts] = useContext(ContactContext);
 	const [form, setForm] = useState({
-		id: uuidv4(),
+		id: "",
 		firstName: "",
 		lastName: "",
 		phoneNumber: "",
@@ -16,7 +16,7 @@ const ContactCreateForm = () => {
 	});
 
 	const handleInputChange = (event) => {
-		setForm({ ...form, [event.target.name]: event.target.value });
+		setForm({ id:uuidv4(), ...form , [event.target.name]: event.target.value });
 	};
 
 	const handleFormSubmit = (event) => {
@@ -30,7 +30,6 @@ const ContactCreateForm = () => {
 			address: "",
 			profilePic: "",
 		});
-		// createContact(form);
 	};
 
 	return (

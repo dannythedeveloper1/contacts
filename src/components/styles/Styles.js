@@ -38,3 +38,20 @@ export const Avatar = styled.img`
 	border-radius: 100%;
 	width: 100px;
 `;
+
+export const Container = styled.div`
+	border: 1px solid black;
+	margin: 10% 20%;
+	background-color: lightgray;
+`;
+
+export const FormContainer = styled.div`
+	margin: 5% 10%;
+	padding: 10px;
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	border: none;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+		0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+`;

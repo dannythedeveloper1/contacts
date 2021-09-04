@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { deleteContact } from "../../utils/contacts";
 import { ContactContext } from "../Context/ContactContext";
 export const Container = styled.div`
-    border:1px solid black;
     margin:5% 10%;
     padding:10px;
     background-color: white;
@@ -14,7 +13,7 @@ export const Container = styled.div`
 		0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 `;
 const ContactCard = ({
-    id,
+    id="",
 	firstName = "",
 	lastName = "",
 	phoneNumber = "",

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-
+import { useHistory } from "react-router-dom";
+import { login } from "../../utils/auth";
 const LoginForm = () => {
-	const [login, setLogin] = useState({ username: "", password: "" });
+	const history = useHistory();
+	const [form, setForm] = useState({ username: "", password: "" });
 
 	const handleInputChange = (event) => {
-		setLogin({ ...login, [event.target.name]: event.target.value });
+		setForm({ ...form, [event.target.name]: event.target.value });
 	};
 
 	const handleFormSubmit = (event) => {
 		event.preventDefault();
+		login(form['username'], form.password) ?
+			history.push("/contacts") :
+			alert("Access Denied");
 	};
 
 	return (
@@ -20,7 +25,7 @@ const LoginForm = () => {
 					name="username"
 					type="text"
 					placeholder="Username"
-					value={login.username}
+					value={form.username}
 					onChange={handleInputChange}
 				/>
 			</div>
@@ -31,7 +36,7 @@ const LoginForm = () => {
 					name="password"
 					type="password"
 					placeholder="Password"
-					value={login.password}
+					value={form.password}
 					onChange={handleInputChange}
 				/>
 			</div>

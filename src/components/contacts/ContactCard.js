@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { deleteContact } from "../../utils/contacts";
+// import { deleteContact } from "../../utils/contacts";
 import { ContactContext } from "../Context/ContactContext";
 export const Container = styled.div`
     margin:5% 10%;

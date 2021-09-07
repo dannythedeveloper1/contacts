@@ -43,6 +43,8 @@ export const Container = styled.div`
 	border: 1px solid black;
 	margin: 10% 20%;
 	background-color: lightgray;
+	padding:15% 10%;
+	/* padding-left:10%; */
 `;
 
 export const FormContainer = styled.div`

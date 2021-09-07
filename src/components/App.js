@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import LoginPage from "./login";
 import RegisterPage from "./register";
 import ContactsPage from "./contacts";
 import ContactDetailsPage from "./contact-details";
 import ContactCreatePage from "./contact-create";
-import { getContacts } from "../utils/contacts";
+// import { getContacts } from "../utils/contacts";
 import { ContactContext } from "./Context/ContactContext";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 // const mockContacts = [
 // 	{
 // 		id: 1,
@@ -55,13 +55,21 @@ function App() {
 	// }, []);
 
 	return (
-		<div>
-			<LoginPage />
-			<RegisterPage />
-			<ContactsPage />
-			<ContactDetailsPage contact={contacts[3]} />
-			<ContactCreatePage />
-		</div>
+		<Router>
+			<Route path="/login">
+				<LoginPage />
+			</Route>
+			<Route path="/register">
+				<RegisterPage />
+			</Route>
+			<Route path="/contacts">
+				<ContactsPage />
+				<ContactCreatePage />
+			</Route>
+			<Route path="/details">
+				<ContactDetailsPage contact={contacts[3]} />
+			</Route>
+		</Router>
 	);
 }
 
